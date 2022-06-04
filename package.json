@@ -1,5 +1,5 @@
 {
-  "name": "public_apis_library",
+  "name": "public_users_library",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
