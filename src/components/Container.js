@@ -16,6 +16,8 @@ import 'animate.css';
 import Table from './Table/Table';
 import { Routes, Route } from 'react-router-dom';
 import FormUser from './Form/FormUser';
+import useModal from '../customHook/UseModal';
+import Modal from '../customHook/Modal';
 
 
 
@@ -31,6 +33,8 @@ const Container = () => {
   const [form, setForm] = useState(initialForm);
   const [dbs, setDbs] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(null);
+  const { closeModal, openModal, openM, title } = useModal("Se ha importado el usuario a la Base datos");
+
   let api = helpHttp(),
     url = "https://jsonplaceholder.typicode.com/users";
 
@@ -42,10 +46,10 @@ const Container = () => {
   //filtrado
   let results = [];
   if (!search) {
-    results = users
+    results = users;
   } else {
     results = users.filter((dato) =>
-      dato.name.toLowerCase().includes(search.toLocaleLowerCase()))
+      dato.name.toLowerCase().includes(search.toLocaleLowerCase()));
   }
 
   useEffect(() => {
@@ -66,7 +70,7 @@ const Container = () => {
     getData()
     showData()
     // eslint-disable-next-line 
-  }, []);
+  }, [form]);
 
 
   const searcher = (e) => {
@@ -82,15 +86,17 @@ const Container = () => {
     if (results.length === 0) {
       alert("No se encontró el usuario, validar los datos ingresados")
     } else {
-      alert("Se ha importado el usuario a la Base datos")
+      openM()
       const docRef = await addDoc(collection(db, "users"), results[0]);
       setDbs([...dbs, { ...results[0], id: docRef.id }]);
+
     }
     handleReset();
   }
 
   const handleReset = (e) => {
     setForm(initialForm);
+    setSearch("");
   };
 
 
@@ -126,15 +132,16 @@ const Container = () => {
       console.error("Error adding document: ", e);
     }
   };
-
+  console.log(openModal)
   return (
     <>
       <Navbar />
+      {openModal ? <Modal closeModal={closeModal} title={title}  /> : ""}
       <Routes>
         <Route exact path="/" element={
           <Table
-          results={results}
-          dbs={dbs}
+            results={results}
+            dbs={dbs}
             importData={importData}
             searcher={searcher}
             form={form}

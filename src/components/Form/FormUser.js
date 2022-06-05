@@ -54,7 +54,7 @@ const FormUser = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
     return (
         <>
-            <h4 className='d-flex justify-content-center mb-2 mt-3'>{dataToEdit ? "Editar Obra de arte" : "Agregar Obra de arte"}</h4>
+            <h4 className='d-flex justify-content-center mb-2 mt-3'>{dataToEdit ? "Edit User" : "Agregar User"}</h4>
             <div className="d-flex justify-content-center animate__animated animate__lightSpeedInLeft">
                 {/* Formulario */}
                 <hr />
@@ -78,9 +78,9 @@ const FormUser = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                         </div>
 
                         {dataToEdit ?
-                            <div><button className="btn btn-warning" type='submit' >Editar</button> <button onClick={handleReset} className="btn btn-dark" >Cancelar</button></div>
+                            <div><button className="btn btn-warning" type='submit' >Edit</button> <button onClick={handleReset} className="btn btn-dark" >Cancel</button></div>
                             :
-                            <button className="btn btn-primary" type='submit' >Enviar</button>}
+                            <button className="btn btn-primary" type='submit' >Send</button>}
                     </form>
                 </div>
             </div>

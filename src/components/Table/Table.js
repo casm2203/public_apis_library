@@ -17,7 +17,6 @@ const Table = ({ importData, searcher, form, results, dbs, setDataToEdit, dataTo
                     <div className="col  animate__animated animate__zoomIn" >
                         <form className="input-group mb-3 w-75 p-3 container-fluid" onSubmit={importData}>
                             <input onChange={searcher} name='name' value={form.name} type="text" className="form-control" placeholder="Search users" aria-label="Recipient's username" aria-describedby="basic-addon2" required />
-                            {/* <button onClick={searcher} className="input-group-text" id="basic-addon2">Search</button> */}
                             <button type='submit' className="input-group-text" id="basic-addon2">Import</button>
                         </form>
                     </div>
@@ -25,7 +24,7 @@ const Table = ({ importData, searcher, form, results, dbs, setDataToEdit, dataTo
                     </div>
                 </div>
                 <div className="col shadow-sm " >
-                    <h5 className='mt-2'>Usuarios API</h5>
+                    <h5 className='mt-2'>Users API</h5>
                     <table className="table ">
                         <thead>
                             <tr>
@@ -50,7 +49,7 @@ const Table = ({ importData, searcher, form, results, dbs, setDataToEdit, dataTo
                     </table>
                 </div>
                 <div className="col shadow-sm " >
-                    <h5 className='mt-2' >Usuarios Base de datos</h5>
+                    <h5 className='mt-2' >Users Date base firebase</h5>
                     <table className="table">
                         <thead>
                             <tr>
@@ -71,8 +70,8 @@ const Table = ({ importData, searcher, form, results, dbs, setDataToEdit, dataTo
                                     <td>{email}</td>
                                     <td>{website}</td>
                                     <td><div className="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <button type="button" onClick={() => handleEdit({ id, name, username, email, website })} className="btn btn-warning btn-sz">Editar</button>
-                                        <button type="button" onClick={() => deleteData(id)}className="btn btn-danger btn-sz">Eliminar</button>
+                                        <button type="button" onClick={() => handleEdit({ id, name, username, email, website })} className="btn btn-warning btn-sz">Edit</button>
+                                        <button type="button" onClick={() => deleteData(id)}className="btn btn-danger btn-sz">Delete</button>
                                     </div></td>
                                 </tr>
                             </tbody>
