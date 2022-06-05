@@ -54,7 +54,7 @@ const FormUser = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
     return (
         <>
-            <h4 className='d-flex justify-content-center mb-2 mt-3'>{dataToEdit ? "Edit User" : "Agregar User"}</h4>
+            <h4 className='d-flex justify-content-center mb-2 mt-3'>{dataToEdit ? "Edit User" : "Add User"}</h4>
             <div className="d-flex justify-content-center animate__animated animate__lightSpeedInLeft">
                 {/* Formulario */}
                 <hr />
