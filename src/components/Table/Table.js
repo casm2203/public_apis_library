@@ -16,7 +16,7 @@ const Table = ({ importData, searcher, form, results, dbs, setDataToEdit, dataTo
                 <div className="row shadow-sm ">
                     <div className="col  animate__animated animate__zoomIn" >
                         <form className="input-group mb-3 w-75 p-3 container-fluid" onSubmit={importData}>
-                            <input onChange={searcher} name='name' value={form.name} type="text" className="form-control" placeholder="Search users" aria-label="Recipient's username" aria-describedby="basic-addon2" required />
+                            <input onChange={searcher} name='name' value={form.name} type="text" className="form-control" placeholder="search for a user and import it" aria-label="Recipient's username" aria-describedby="basic-addon2" required />
                             <button type='submit' className="input-group-text" id="basic-addon2">Import</button>
                         </form>
                     </div>
